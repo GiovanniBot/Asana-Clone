@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&there4;&nbsp;My Tasks - EXO | Exercício Javascript #1 - Asana</title>
+    <link rel="icon" type="image/x-icon" href="/imgs/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/glowingBtn.css">
+    <script src="https://kit.fontawesome.com/8e0a5a4661.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header container-fluid pt-0">
+        <div class="row">
+            <div class="col-12">
+                <div class="container-fluid text-light">
+                    <div class="row">
+                        <div class="col-1 d-flex align-items-center justify-content-center py-0">
+                            <a href="#"><i class="fa-solid fa-burger h2 grey mt-1 ms-1"></i></a>
+                        </div>
+                        <div class="col-1 d-flex align-items-center justify-content-end py-0">
+                            <img class="profile-image" src="./imgs/1200286717813716.1200286717842536.XaVCCjpnJxLRnqO2hjux_128x128.png" alt="Profile image" draggable="false">
+                        </div>
+                        <div class="col-4 d-flex align-items-center justify-content-start px-0 pt-2">
+                            <div class="container-fluid">
+                                <div class="row no-gutters">
+                                    <div class="col-12 py-0">
+                                        <p class="h5 mt-1">My Tasks&nbsp;&nbsp;<a href="#"><i class="fa-solid fa-caret-down h5 grey"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters">
+                                    <div class="col-12 py-0">
+                                        <div class="container-fluid px-0 mx-0 h6">
+                                            <div class="row no-gutters">
+                                                <div class="col-2 active"><a href="#">List</a></div>
+                                                <div class="col-2 ps-2 me-2 grey"><a href="#">Board</a></div>
+                                                <div class="col-3 grey"><a href="#">Calendar</a></div>
+                                                <div class="col-3 grey"><a href="#">Files</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 offset-2 d-flex align-items-center justify-content-end px-0">
+                            <input id="search-bar" onkeyup="event.preventDefault();searchFilter();" type="text" placeholder="Search" autocomplete="off">
+                        </div>
+                        <div class="col-1 d-flex align-items-center justify-content-center px-0">
+                            <button class="button-red btn-danger modal-btn py-2 px-3"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="modal-bg">
+        <div class="modaw">
+            <h2 class="mb-5">New task</h2>
+            <form onsubmit="event.preventDefault();createTask();" id="form">
+                <label class="h6" for="taskNameInput">Task Name:</label>
+                <input class="mb-5 px-2 py-1" type="text" name="taskNameInput" id="taskNameInput"><br>
+                <button type="submit" class="btn btn-primary py-2 px-3 create-task-btn w-100">Create</button>
+                <span class="modal-close h3"><i class="fa-solid fa-xmark"></i></span>
+            </form>
+        </div>
+    </div>
+    <section class="my-3 mx-0 px-0">
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-12 px-0">
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            <div class="col-2 d-flex align-items-center justify-content-center px-0">
+                                <button class="button btn-primary modal-btn">
+                                    + Add task
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="text-light mt-3">
+                        <li class="list-options border-top border-bottom mx-0 py-0" draggable="false">
+                            <div class="row">
+                                <div class="col-6 d-flex align-items-center">
+                                    <span class="ms-2 me-4 grey">#</span>
+                                    <span class="ms-2 me-5 grey">Task name</span>
+                                </div>
+                                <div class="col-2 d-flex align-items-center grey">
+                                    <span class="due-date px-3 py-1">Due date</span>
+                                </div>
+                                <div class="col-4 d-flex align-items-center grey">
+                                    <div class="p-0 m-0">
+                                        Options
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="list" class="list text-light draggable-list"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="./scripts/list.js"></script>
+    <script src="./scripts/createTask.js"></script>
+    <script src="./scripts/modal.js"></script>
+    <script src="./scripts/searchBar.js"></script>
+    <script src="./scripts/deleteTask.js"></script>
+    <script src="./scripts/updateEnumerables.js"></script>
+</body>
+</html>
