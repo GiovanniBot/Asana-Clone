@@ -29,5 +29,4 @@ function createTask() {
         taskNameInput.val('');
     }
     deleteTaskListener();
-    addEventListeners();
 }
