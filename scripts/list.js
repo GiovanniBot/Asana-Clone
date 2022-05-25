@@ -1,7 +1,6 @@
 var dragStartIndex, takenItem, receiverItem;
 var draggable_list = $('#list');
 
-function dragEnter() {}
 function dragLeave() {
     $(this).removeClass('hover');
 }
@@ -28,10 +27,13 @@ function swapItems(fromIndex, toIndex) {
 function addEventListeners() {
     const draggables = $('.draggable');
     draggables.each(function() {
-        this.addEventListener('dragstart', dragStart);
-        this.addEventListener('dragover', dragOver);
-        this.addEventListener('dragenter', dragEnter);
-        this.addEventListener('dragleave', dragLeave);
-        this.addEventListener('drop', dragDrop);
+        $(this).off('dragstart', dragStart);
+        $(this).off('dragover', dragOver);
+        $(this).off('dragleave', dragLeave);
+        $(this).off('drop', dragDrop);
+        $(this).on('dragstart', dragStart);
+        $(this).on('dragover', dragOver);
+        $(this).on('dragleave', dragLeave);
+        $(this).on('drop', dragDrop);
     });
 }

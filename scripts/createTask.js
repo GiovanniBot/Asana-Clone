@@ -4,7 +4,7 @@ function createTask() {
     if(taskNameInput.val().length >= 1) {
         var indexSequenceEnum = $('.list-item').length;
         $('.list').append(
-            `<li class="list-item border-top draggable" draggable="true" data-index="${indexSequenceEnum}" onmouseover="addEventListeners();">
+            `<li class="list-item border-top draggable" draggable="true" data-index="${indexSequenceEnum}">
                 <div class="row">
                     <div class="col-6 d-flex align-items-center">
                         <span id="id${indexSequenceEnum}" class="ms-2 me-5 grey-font">${indexSequenceEnum + 1}</span>
@@ -27,6 +27,7 @@ function createTask() {
             </li>`
         );
         taskNameInput.val('');
+        addEventListeners();
     }
     deleteTaskListener();
 }
